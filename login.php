@@ -76,14 +76,26 @@ if(isset($_POST['login']))
 {
     $u_name=$_POST['u_name'];
     $pwd=$_POST['pwd'];
-    $data=mysqli_query($con,"SELECT * from login where username='$u_name' and password='$pwd'");
+    $data=mysqli_query($con,"SELECT reg.email,reg.id,login.type FROM login inner join reg on reg.email=login.username where reg.email='$u_name' and reg.password='$pwd'");
     if(mysqli_num_rows($data)>0)
 {
-  $ses=mysqli_fetch_assoc($data);
-  $_SESSION['username']=$ses['username'];
-  $_SESSION['staff_id']=$ses['staff_id'];
+  $row=mysqli_fetch_assoc($data);
+ 
+ 
+ // if($type=="staff")
+  //{
+    
+
+ 
+  
+   
+  $_SESSION['username']=$row['email'];
+  
+ $_SESSION['staff_id']=$row['id'];
+ 
     header("location:index.php");
 }
+//}
 else{
     echo "<script>alert('invalid username or password')</script>";
 }

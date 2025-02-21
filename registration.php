@@ -54,7 +54,7 @@ if (move_uploaded_file($_FILES["f1"]["tmp_name"], $uploadFile)) {
     mysqli_query($con,"INSERT INTO reg(username,gender,email,password,cpassword,file,status)VALUES('$uname','$gender','$email','$pwd','$cpwd','$filename','pending')");
 
 $id=mysqli_insert_id($con);
-mysqli_query($con,"INSERT INTO `login`(`username`, `password`,  `id`) VALUES ('$email','$pwd','$id')");
+mysqli_query($con,"INSERT INTO `login`(`username`, `password`, `type`, `id`) VALUES ('$email','$pwd','staff','$id')");
 header("location:login.php");
 }
 ?>
