@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2025 at 11:04 AM
+-- Generation Time: Feb 21, 2025 at 12:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,11 @@ INSERT INTO `complaint` (`complaint_id`, `complaint`, `date`, `staff_id`, `reply
 (10, 'comp2', '2025-02-14', 16, 'hello'),
 (12, 'nbm', '2025-02-13', 17, 'sf'),
 (13, 'jhj', '2025-02-13', 22, ''),
-(14, 'kl', '2025-02-14', 20, '');
+(14, 'kl', '2025-02-14', 20, ''),
+(15, 'bn', '2025-02-28', 16, 'azx'),
+(16, 'cmp', '2025-02-01', 16, 'cmpreply'),
+(17, 'hello', '2025-02-14', 1, ''),
+(18, 'cmp2', '2025-02-10', 1, '');
 
 -- --------------------------------------------------------
 
@@ -52,31 +56,19 @@ INSERT INTO `complaint` (`complaint_id`, `complaint`, `date`, `staff_id`, `reply
 --
 
 CREATE TABLE `login` (
-  `id` int(11) NOT NULL,
+  `login_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `username`, `password`) VALUES
-(6, 'gaya@gmail.com', 'gaya'),
-(7, 'abi@gmail.com', 'abi'),
-(8, 'az@gmail.com', 'az'),
-(10, 'aaag@gmail.com', 'aa'),
-(11, 'vv@gmail.com', 'vv'),
-(12, 'zz@gmail.com', 'zz'),
-(13, 'az@gmail.com', 'az'),
-(14, 'manu@gmail.com', 'manu'),
-(15, 'azl@gmail.com', 'azl'),
-(16, 'abimanyu', 'abi'),
-(17, 'bindu@gmail.com', 'bindu'),
-(18, 'diya', 'diya'),
-(20, 'arun@GMAIL.COM', 'ARUN'),
-(21, 'deepathi@gmail.com', 'deepathi'),
-(22, 'geetha@gmail.com', 'geetha');
+INSERT INTO `login` (`login_id`, `username`, `password`, `type`, `id`) VALUES
+(1, 'athira@gmail.com', 'athira', 'staff', 1);
 
 -- --------------------------------------------------------
 
@@ -132,12 +124,7 @@ CREATE TABLE `reg` (
 --
 
 INSERT INTO `reg` (`id`, `username`, `gender`, `email`, `password`, `cpassword`, `file`, `status`) VALUES
-(16, 'abimanyu', 'Female', 'abi@gmail.com', 'abi', 'abi', 'images (2).jpg', 'reject'),
-(17, 'bindu', 'Male', 'bindu@gmail.com', 'bindu', 'bindu', 'images (1).jpg', 'Approve'),
-(18, 'diya', 'Female', 'diya@gmail.com', 'diya', 'deepak', 'images (2).jpg', 'Approve'),
-(20, 'arun', 'Male', 'arun@GMAIL.COM', 'ARUN', 'ARUN', 'images (2).jpg', 'Approve'),
-(21, 'deepthi', 'Female', 'deepathi@gmail.com', 'deepathi', 'deepthi', 'images (2).jpg', 'Approve'),
-(22, 'geetha', 'Female', 'geetha@gmail.com', 'geetha', 'geetha', 'images (1).jpg', 'pending');
+(1, 'athira', 'Female', 'athira@gmail.com', 'athira', 'athira', 'download.jpeg', 'pending');
 
 -- --------------------------------------------------------
 
@@ -172,7 +159,7 @@ ALTER TABLE `complaint`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`login_id`);
 
 --
 -- Indexes for table `notification`
@@ -200,13 +187,13 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `complaint`
 --
 ALTER TABLE `complaint`
-  MODIFY `complaint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `complaint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `notification`
@@ -218,7 +205,7 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `reg`
 --
 ALTER TABLE `reg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `staff`
