@@ -34,7 +34,7 @@ $data=mysqli_query($con,"select * from staff");
   <div class="container-scroller d-flex">
     <!-- partial:./partials/_sidebar.html -->
     <?php
-    include 'sidebar1.php'
+    include 'staffindex.php'
     ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">

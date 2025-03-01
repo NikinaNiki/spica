@@ -1,16 +1,17 @@
 
 <?php
 include 'conn.php';
-$data=mysqli_query($con,"select * from notification");
+$data=mysqli_query($con,"select * from notification"); 
+
 if(isset($_POST['submit']))
 {
-    
+  
   
   
   $notification=$_POST['notification'];
   $date=$_POST['date'];
   mysqli_query($con,"INSERT INTO notification(notification,date)VALUES('$notification','$date')");
-
+  $data=mysqli_query($con,"select * from notification"); 
 }
 ?>
 
@@ -44,7 +45,7 @@ if(isset($_POST['submit']))
   <div class="container-scroller d-flex">
     <!-- partial:./partials/_sidebar.html -->
     <?php
-    include 'sidebar.php'
+    include 'adminsidebar.php'
     ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
@@ -74,12 +75,12 @@ if(isset($_POST['submit']))
                     <div class="form-group">
                       <label for="exampleInputUsername1">Notification</label>
                       <input type="text" name="notification"
-                      class="form-control" id="exampleInputUsername1" placeholder="Username">
+                      class="form-control" id="exampleInputUsername1" placeholder="Username" Required>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputUsername1">date</label>
                       <input type="date" name="date"
-                      class="form-control" id="exampleInputUsername1" placeholder="Username">
+                      class="form-control" id="exampleInputUsername1" placeholder="Username" Required>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>
@@ -87,8 +88,9 @@ if(isset($_POST['submit']))
                     
                 
 </div>
+<br><br><br>
 <div>
-<table class="table table-bordered table-dark">
+<table class="table table-bordered table-primary">
                       <thead>
                         <tr>
                           <th>

@@ -46,7 +46,7 @@ if(isset($_POST['submit']))
   <div class="container-scroller d-flex">
     <!-- partial:./partials/_sidebar.html -->
     <?php
-    include 'sidebar.php'
+    include 'adminsidebar.php'
     ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
@@ -81,7 +81,7 @@ if(isset($_POST['submit']))
                     <div class="form-group">
                       <label for="exampleInputUsername1">Reply</label>
                       <input type="text" name="reply"
-                      class="form-control" id="exampleInputUsername1" >
+                      class="form-control" id="exampleInputUsername1" Required >
                     </div>
                     
                     <button type="submit" name="submit" class="btn btn-primary mr-2">Submit</button>

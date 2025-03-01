@@ -35,7 +35,7 @@ $data=mysqli_query($con,"select * from notification");
   <div class="container-scroller d-flex">
     <!-- partial:./partials/_sidebar.html -->
     <?php
-    include 'sidebar2.php'
+    include 'staffsidebar.php'
     ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">

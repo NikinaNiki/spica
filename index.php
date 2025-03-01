@@ -21,7 +21,7 @@
   <div class="container-scroller d-flex">
     <!-- partial:./partials/_sidebar.html -->
     <?php
-    include 'sidebar.php'
+    include 'staffsidebar.php'
     ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
