@@ -61,7 +61,7 @@ echo "<script>window.location.href='viewregistration.php';</script>";
   <div class="container-scroller d-flex">
     <!-- partial:./partials/_sidebar.html -->
     <?php
-    include 'sidebar.php'
+    include 'adminsidebar.php'
     ?> 
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">

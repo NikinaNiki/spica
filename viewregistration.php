@@ -93,7 +93,7 @@ $data=mysqli_query($con,"select * from reg");
         <td><?php echo $row['email'];?></td>
         <td><?php echo $row['password'];?></td>
         <td><img src="image/<?php echo $row['file'] ;?>" height="100" width="200"></td>
-    
+    <td><a href="download.php?file=<?php echo urlencode ($row['file']);?>">Download</a></td>
     
         <td><a href="delete.php?id=<?php echo $row['id']?>">delete</td>
         <td><a href="update.php?id=<?php echo $row['id']?>">Edit</td>

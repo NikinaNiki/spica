@@ -1,9 +1,16 @@
 
 <?php
 include 'conn.php';
-$data=mysqli_query($con,"select * from staff");
-?>
+$data=mysqli_query($con,"select * from reg  ");
 
+if(isset($_POST['submit']))
+{
+    
+  
+  $name=$_POST['search'];
+  $data=mysqli_query($con,"select * from reg where username='$name' ");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,55 +52,41 @@ $data=mysqli_query($con,"select * from staff");
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
- 
+            <form method="POST">
+          Search<input type="text" name="search">
 
-        
-
-
-
-                <div class="col-lg-12 stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title"></h4>
-                  <p class="card-description">
-                   
-                  <div class="table-responsive pt-3">
-                   <div>
-                   <div>
-<table class="table table-bordered table-dark">
-                      <thead>
-                        <tr>
-                          <th>
-                           feedback
-                          </th>
-                          <th>
-                           Date
-                          </th>
+          <button type="submit" name="submit">search</button>
+          </form>
+          <table class="table table-bordered table-dark">
+            <tr>
+            <th>Username</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>file</th>
+            <th>status</th>
     </tr>
-    
-    <?php
+            <?php
     while($row=mysqli_fetch_assoc($data))
     {
     ?>
                         <tr >
-                        <td><?php echo $row['feedback'];?></td>
-                        <td><?php echo $row['date'];?></td>
+                        <td><?php echo $row['username'];?></td>
+                        <td><?php echo $row['gender'];?></td>
+        <td><?php echo $row['email'];?></td>
+        <td><?php echo $row['password'];?></td>
+        <td><img src="image/<?php echo $row['file'] ;?>" height="100" width="200"></td>
+        <td><?php echo $row['status'];?></td>
     </tr>
-
-<?php
-    }
-    ?>
-    </div>
     
-     
-                
-</div>
-              </div>
+<?php
+}
+
+?>
+</table>
+
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
                
             <!-- row end -->
           
@@ -117,8 +110,6 @@ $data=mysqli_query($con,"select * from staff");
   <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
   <!-- End custom js for this page-->
-
-
 </body>
 
 </html>
